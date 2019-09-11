@@ -56,6 +56,22 @@ var orm = {
     });
     },
 
-    
-}
-}
+    updateOne: function(table, objColVals, condition, cb){
+        var queryString = "UPDATE " + table;
+        queryString += "SET";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+
+        connection.query(queryString, function(err, results){
+            if(err){
+                throw err;
+            }
+            cb(results);
+
+        });
+        
+},
+};
+
+module.exports = orm;
