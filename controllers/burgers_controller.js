@@ -28,8 +28,8 @@ router.get("/burgers", function(req,res){
 
             });
         });
-
-        router.burger("/burgers,update/:id", function(req,res){
+        
+        router.put("/burgers,update/:id", function(req,res){
             var condition = "id = " + req.params.id;
             console.log("condition", condition);
 
